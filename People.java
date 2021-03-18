@@ -63,7 +63,11 @@ public abstract class People
 
     public void modifyLifePoints(int points)
     {
+
         myLifePoints += points;
+        if(myLifePoints > MAX_LIFEPOINTS){
+            myLifePoints = MAX_LIFEPOINTS;
+        }
     }
 
     public abstract int encounterStrategy(People otherPerson);

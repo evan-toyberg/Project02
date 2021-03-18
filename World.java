@@ -157,12 +157,8 @@ public class World
 
         // record the damage: positive damage should be subtracted for persons lifePoint
         // negative damage is added to persons life points
-        if(person1.getLifePoints() - p2damage < person1.MAX_LIFEPOINTS){
-            person1.modifyLifePoints(-p2damage);
-        }
-        if(person2.getLifePoints() - p1damage < person2.MAX_LIFEPOINTS){
-            person2.modifyLifePoints(-p1damage);
-        }
+        person1.modifyLifePoints((-p2damage));
+        person2.modifyLifePoints((-p1damage));
 
         // Both people lose 1 life point per encounter due to aging
         person1.modifyLifePoints((-1));
