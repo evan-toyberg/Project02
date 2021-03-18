@@ -119,16 +119,19 @@ public class World
     }
 
 
-    public void encounter(Integer person1, Integer person2)
+    public void encounter(Integer p1, Integer p2)
     {
         Integer person1LifePointsToUse;
         Integer person2LifePointsToUse;
-        System.out.println("Encounter: " + worldCreatedPeople.get(person1) + worldCreatedPeople.get(person2));
+        People person1 = worldCreatedPeople.get(p1);
+        People person2 = worldCreatedPeople.get(p2);
+
+        System.out.println("Encounter: " + person1 + person2);
 
         //if lifePointsToUse is negative, then person is either running away in a hostile encounter
         // or person is giving life points to another person from same nation
-        person1LifePointsToUse = worldCreatedPeople.get(person1).encounterStrategy(worldCreatedPeople.get(person2));
-        person2LifePointsToUse = worldCreatedPeople.get(person2).encounterStrategy(worldCreatedPeople.get(person1));
+        person1LifePointsToUse = person1.encounterStrategy(person2);
+        person2LifePointsToUse = person2.encounterStrategy(person1);
 
         // amount of life points actually used is subject to a psuedo-random encounter
         Integer p1damage =  (int) (generator.nextFloat() * person1LifePointsToUse);
@@ -136,16 +139,16 @@ public class World
 
         if ((p1damage > 0) && (p2damage > 0))  // person 1  and person 2 are fighting and inflicting damage
         {
-            p2damage =  (int) (generator.nextFloat() * (worldCreatedPeople.get(person1).getType().ordinal()+1)*p1damage);
-            p1damage =  (int) (generator.nextFloat() * (worldCreatedPeople.get(person2).getType().ordinal()+1)*p2damage);
+            p2damage =  (int) (generator.nextFloat() * (person1.getType().ordinal()+1)*p1damage);
+            p1damage =  (int) (generator.nextFloat() * (person2.getType().ordinal()+1)*p2damage);
         }
         else if ((p1damage > 0) && (p2damage <= 0)) // person 1 is fighting and person 2 is running
         {
-            p2damage =  (int) (generator.nextFloat() * (worldCreatedPeople.get(person1).getType().ordinal()+1)*(p1damage/3));
+            p2damage =  (int) (generator.nextFloat() * (person1.getType().ordinal()+1)*(p1damage/3));
         }
         else if ((p1damage <= 0) && (p2damage > 0)) // person 2 is fighting and person 1 is running
         {
-            p1damage =  (int) (generator.nextFloat() * (worldCreatedPeople.get(person2).getType().ordinal()+1)*(p2damage/3));
+            p1damage =  (int) (generator.nextFloat() * (person2.getType().ordinal()+1)*(p2damage/3));
         }
         else // freindly encounter, do nothing
         {
@@ -154,12 +157,12 @@ public class World
 
         // record the damage: positive damage should be subtracted for persons lifePoint
         // negative damage is added to persons life points
-        worldCreatedPeople.get(person1).modifyLifePoints((-p2damage));
-        worldCreatedPeople.get(person2).modifyLifePoints((-p1damage ));
+        person1.modifyLifePoints((-p2damage));
+        person2.modifyLifePoints((-p1damage ));
 
         // Both people lose 1 life point per encounter due to aging
-        worldCreatedPeople.get(person1).modifyLifePoints((-1));
-        worldCreatedPeople.get(person2).modifyLifePoints((-1));
+        person1.modifyLifePoints((-1));
+        person2.modifyLifePoints((-1));
 
     }
 
