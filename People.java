@@ -61,9 +61,7 @@ public abstract class People
         return myLifePoints;
     }
 
-    public void modifyLifePoints(int points)
-    {
-
+    public void modifyLifePoints(int points) {
         myLifePoints += points;
         if(myLifePoints > MAX_LIFEPOINTS){
             myLifePoints = MAX_LIFEPOINTS;

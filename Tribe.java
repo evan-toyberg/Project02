@@ -1,5 +1,4 @@
 package Project02;
-
 import java.util.Collection;
 import java.util.Collections;
 import java.io.StringBufferInputStream;
@@ -9,6 +8,9 @@ import Project02.PeopleType;
 import Project02.SchaperWarrior;
 import Project02.SchaperWizard;
 
+/**
+ * Class is used to create a tribe under a nation that has a certain amount of life points.
+ */
 public class Tribe
 {
     private String nationName;
@@ -16,99 +18,59 @@ public class Tribe
     private int tribeLifePoints;
     private ArrayList<People> members = new ArrayList<>();
     private ArrayList<People> livingMembers = new ArrayList<>();
+    private AddNaveedPlayersToNaveedNation addNaveedPlayersToNaveedNation = new AddNaveedPlayersToNaveedNation();
+    private AddToybergPlayersToToybergNation addToybergPlayersToToybergNation = new AddToybergPlayersToToybergNation();
+    private AddSmilonsPlayersToSmilonsNation addSmilonsPlayersToSmilonsNation = new AddSmilonsPlayersToSmilonsNation();
+    private AddPerezPlayersToPerezNation addPerezPlayersToPerezNation = new AddPerezPlayersToPerezNation();
 
-    public Tribe(String nation, String tribe, int lifePoints, int numWarriors, int numWizards, int numHealers)
+    /**
+     * Create tribes under the given nation using the people types warrior, wizzard, healer.
+     * Each tribe is given 1/3 of the life points.
+     * @param lifePoints is the remaining health the tribe has.
+     * @param nation the given nation name that the tribe will be located under.
+     * @param tribe the name of the tribe
+     */
+    public Tribe(String nation, String tribe, int lifePoints)
     {
         nationName = nation;
         tribeName = tribe;
         tribeLifePoints = lifePoints;
 
-        addWarriors(numWarriors);
-        addWizards(numWizards);
-        addHealers(numHealers);
+        addPlayerstoNation();
 
         for(int i = 0; i < members.size(); i++)
             livingMembers.addAll(members);
     }
 
     /**
-     * adds appropriate number of Warriors to the tribe of a certain nation
-     * @param numWarriors number of Warriors to be added to the tribe
+     * Checks for each nation and connects to another class that uses an interface
+     * to add the players for each tribe.
      */
-    private void addWarriors(int numWarriors) {
-        //add warriors to tribe
-        for(int i = 0 ; i < numWarriors ; i++){
-            People warrior;
-            switch(nationName) {
-                case "Toyberg":
-                    warrior = new Project02.ToybergWarrior(nationName, tribeName, tribeLifePoints / 6);
-                    break;
-                case "Smilons":
-                    warrior = new Project02.SmilonsWarrior(nationName, tribeName, tribeLifePoints / 6);
-                    break;
-                case "Perez":
-                    warrior = new Project02.PerezWarrior(nationName, tribeName, tribeLifePoints / 6);
-                    break;
-                default:
-                    warrior = new Project02.NaveedWarrior(nationName, tribeName, tribeLifePoints / 6);
-                    break;
-            }
-
-            members.add(warrior);
+    private void addPlayerstoNation()
+    {
+        if (this.nationName.equals("Naveed"))
+        {
+            addNaveedPlayersToNaveedNation.add(members,nationName,tribeName,tribeLifePoints);
+        }
+        if (this.nationName.equals("Toyberg"))
+        {
+            addToybergPlayersToToybergNation.add(members,nationName,tribeName,tribeLifePoints);
+        }
+        if(this.nationName.equals("Perez"))
+        {
+            addPerezPlayersToPerezNation.add(members,nationName,tribeName,tribeLifePoints);
+        }
+        if(this.nationName.equals("Smilons"))
+        {
+            addSmilonsPlayersToSmilonsNation.add(members,nationName,tribeName,tribeLifePoints);
         }
     }
 
     /**
-     * adds appropriate number of healers to the tribe of a certain nation
-     * @param numWizards number of Wizards to be added to certain nation
+     *Gets and returns the number of living tribe members based on the size of
+     *the members array list. Also keeps track of the tribes current life points.
+     * @return livingMembers
      */
-    private void addWizards(int numWizards) {
-        for(int i = 0 ; i < numWizards ; i++){
-            People wizard;
-            switch(nationName) {
-                case "Toyberg":
-                    wizard = new Project02.ToybergWizard(nationName, tribeName, tribeLifePoints / 6);
-                    break;
-                case "Smilons":
-                    wizard = new Project02.SmilonsWizard(nationName, tribeName, tribeLifePoints / 6);
-                    break;
-                case "Perez":
-                    wizard = new Project02.PerezWizard(nationName, tribeName, tribeLifePoints / 6);
-                    break;
-                default:
-                    wizard = new Project02.NaveedWizard(nationName, tribeName, tribeLifePoints / 6);
-                    break;
-            }
-            members.add(wizard);
-        }
-    }
-
-    /**
-     * adds appropriate number of healers to the tribe of a certain nation
-     * @param numHealers the number of healers to be added to the tribe
-     */
-    private void addHealers(int numHealers) {
-        for(int i = 0 ; i < numHealers ; i++){
-            People healer;
-            switch(nationName) {
-                case "Toyberg":
-                    healer = new Project02.ToybergHealer(nationName, tribeName, tribeLifePoints / 6);
-                    break;
-                case "Smilons":
-                    healer = new Project02.SmilonsHealer(nationName, tribeName, tribeLifePoints / 6);
-                    break;
-                case "Perez":
-                    healer = new Project02.PerezHealer(nationName, tribeName, tribeLifePoints / 6);
-                    break;
-                default:
-                    healer = new Project02.NaveedHealer(nationName, tribeName, tribeLifePoints / 6);
-                    break;
-            }
-            members.add(healer);
-        }
-    }
-
-
     public ArrayList<People> getLivingTribeMembers()
     {
         livingMembers.clear();
@@ -144,27 +106,41 @@ public class Tribe
 */
 
 
+    /**
+     * @return size of the current living members
+     * */
     public int getTribeSize()
     {
         return livingMembers.size();
     }
 
+    /**
+     * @return if tripe is alive
+     */
     public Boolean isTribeAlive()
     {
         return (tribeLifePoints > 0);
     }
 
-
+    /**
+     * @return the number of life points remaining
+     */
     public int getTribeLifePoints()
     {
         return tribeLifePoints;
     }
 
+    /**
+     * @return the name of the given tribe
+     */
     public String getTribeName()
     {
         return tribeName;
     }
 
+    /**
+     * @return concat the tribe members to the tribe name
+     */
     public String toString()
     {
         String result = "\0";

@@ -4,43 +4,36 @@ import Project02.People;
 import Project02.PeopleType;
 
 
-public class SmilonsWizard extends Project02.People
-{
-    SmilonsWizard(String nation, String tribe, int lifePoints)
-    {
+public class SmilonsWizard extends Project02.People {
+    SmilonsWizard(String nation, String tribe, int lifePoints) {
         super(nation, tribe, PeopleType.warrior, lifePoints);
         myDescription = "\tSmilons Wizard";
     }
 
 
-    public int encounterStrategy(People otherPerson)
-    {
+    public int encounterStrategy(People otherPerson) {
         int lifePoints = 0;
-        if(this.getNation() == otherPerson.getNation())
-        {
-            if(otherPerson.getLifePoints() < this.getLifePoints())
-            {
-                if(otherPerson.getTribe() == this.getTribe())
-                {
+        if (this.getNation() == otherPerson.getNation()) {
+            if (otherPerson.getLifePoints() < this.getLifePoints()) {
+                if (otherPerson.getTribe() == this.getTribe()) {
                     lifePoints = -((this.getLifePoints() - otherPerson.getLifePoints()) / 2);
-                }
-                else
-                {
+                } else {
                     lifePoints = -((this.getLifePoints() - otherPerson.getLifePoints()) / 4);
                 }
             }
-        }
-        else
-        {
-            int points;
-            points = this.getLifePoints() - otherPerson.getLifePoints();
-            if (points > 0)
+        } else
+            //Tribe1 wizard is very aggressive
             {
-                lifePoints = otherPerson.getLifePoints();
-            }
-            else
-            {
+            if (this.getTribe().equals("Tribe1")) {
                 lifePoints = this.getLifePoints();
+            }
+            //Tribe2 wizard is more conservative with life points contributed
+            else if (this.getTribe().equals("Tribe2")) {
+                lifePoints = this.getLifePoints()/2;
+            } else
+            //Tribe3 wizard will be very conservative
+            {
+                lifePoints = this.getLifePoints()/4;
             }
         }
         return lifePoints;
