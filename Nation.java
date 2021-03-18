@@ -34,8 +34,7 @@ public class Nation
         }
         for(int i = 1; i <=3 ; i++)
         {
-            this.tribes.add(new Tribe(nationName, "Tribe" + i, nationLifePoints / 3,
-                    numWarriorsPerTribe, numWizardsPerTribe, numHealersPerTribe));
+            this.tribes.add(new Tribe(nationName, "Tribe" + i, nationLifePoints / 3));
         }
         population.addAll(getNationPopulation());
         livingPopulation.addAll(population);
