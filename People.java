@@ -11,6 +11,8 @@ public abstract class People
     protected String myDescription;
     private int myLifePoints;
     private boolean dead;
+    public final int MAX_LIFEPOINTS;
+
 
 
     public People(String nation, String tribe, PeopleType person, int lifePoints)
@@ -21,6 +23,7 @@ public abstract class People
         myDescription = me.getDescription();
         myLifePoints = lifePoints;
         dead = false;
+        MAX_LIFEPOINTS = lifePoints;
     }
 
     public void setDead()
@@ -60,11 +63,15 @@ public abstract class People
 
     public void modifyLifePoints(int points)
     {
+
         myLifePoints += points;
+        if(myLifePoints > MAX_LIFEPOINTS){
+            myLifePoints = MAX_LIFEPOINTS;
+        }
     }
 
-
     public abstract int encounterStrategy(People otherPerson);
+
 
 
 
