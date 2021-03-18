@@ -1,5 +1,7 @@
 package Project02;
 
+import Project02.People;
+import Project02.PeopleType;
 public class NaveedHealer extends People
 {
 
@@ -15,13 +17,21 @@ public class NaveedHealer extends People
         // If the two players are from the same nation, heal each other
         if((this.getNation().equals(otherPerson.getNation())))
         {
-            if(this.getLifePoints() < otherPerson.getLifePoints())
+            // Can only heal by a healer
+            if(otherPerson.getType().equals(PeopleType.healer))
             {
-                lifepoints = (int)(this.getLifePoints() - otherPerson.getLifePoints()) / 2;
+                if(this.getLifePoints() < 100)
+                {
+                    lifepoints = this.getLifePoints() + 5;
+                }
+                else
+                {
+                    lifepoints = this.getLifePoints();
+                }
             }
             else
             {
-                lifepoints = 0;
+                lifepoints = this.getLifePoints();
             }
 
         }

@@ -19,9 +19,9 @@ public class SmilonsHealer extends Project02.People{
                 {
                     lifePoints = -this.getLifePoints();
                 }
-                else // attack a wizard
+                else // attack a wizard or healer but not with a lot of lifepoints
                 {
-                    lifePoints = (int) (this.getLifePoints()/2);
+                    lifePoints = (int) (this.getLifePoints()/4);
                 }
             }
         }
