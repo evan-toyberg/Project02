@@ -8,21 +8,30 @@ public class AddSmilonsPlayersToSmilonsNation implements AddPlayers{
     {
         if(tribeName.equals("Tribe1"))
         {
-            members.add(new NaveedHealer(nationName, tribeName, tribeLifePoints / 6));
-            members.add(new NaveedWarrior(nationName, tribeName, tribeLifePoints / 6));
-            members.add(new NaveedWizard(nationName, tribeName, tribeLifePoints / 6));
+            members.add(new SmilonsHealer(nationName, tribeName, tribeLifePoints / 6));
+            members.add(new SmilonsWarrior(nationName, tribeName, tribeLifePoints / 6));
+            members.add(new SmilonsWizard(nationName, tribeName, tribeLifePoints / 6));
+            members.add(new SmilonsHealer(nationName, tribeName, tribeLifePoints / 6));
+            members.add(new SmilonsWarrior(nationName, tribeName, tribeLifePoints / 6));
+            members.add(new SmilonsWizard(nationName, tribeName, tribeLifePoints / 6));
         }
         if(tribeName.equals("Tribe2"))
         {
-            members.add(new NaveedHealer(nationName, tribeName, tribeLifePoints / 6));
-            members.add(new NaveedWarrior(nationName, tribeName, tribeLifePoints / 6));
-            members.add(new NaveedWizard(nationName, tribeName, tribeLifePoints / 6));
+            members.add(new SmilonsHealer(nationName, tribeName, tribeLifePoints / 6));
+            members.add(new SmilonsWarrior(nationName, tribeName, tribeLifePoints / 6));
+            members.add(new SmilonsWizard(nationName, tribeName, tribeLifePoints / 6));
+            members.add(new SmilonsHealer(nationName, tribeName, tribeLifePoints / 6));
+            members.add(new SmilonsWarrior(nationName, tribeName, tribeLifePoints / 6));
+            members.add(new SmilonsWizard(nationName, tribeName, tribeLifePoints / 6));
         }
         if(tribeName.equals("Tribe3"))
         {
-            members.add(new NaveedHealer(nationName, tribeName, tribeLifePoints / 6));
-            members.add(new NaveedWarrior(nationName, tribeName, tribeLifePoints / 6));
-            members.add(new NaveedWizard(nationName, tribeName, tribeLifePoints / 6));
+            members.add(new SmilonsHealer(nationName, tribeName, tribeLifePoints / 6));
+            members.add(new SmilonsWarrior(nationName, tribeName, tribeLifePoints / 6));
+            members.add(new SmilonsWizard(nationName, tribeName, tribeLifePoints / 6));
+            members.add(new SmilonsHealer(nationName, tribeName, tribeLifePoints / 6));
+            members.add(new SmilonsWarrior(nationName, tribeName, tribeLifePoints / 6));
+            members.add(new SmilonsWizard(nationName, tribeName, tribeLifePoints / 6));
         }
     }
 }
