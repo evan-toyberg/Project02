@@ -14,30 +14,35 @@ public class PerezWizard extends Project02.People
 
     public int encounterStrategy(Project02.People otherPerson) {
         int lifePoints = 0;
-        if (this.getNation() != otherPerson.getNation())
+        if (this.getNation() != otherPerson.getNation()) // if they are not from the same nation
         {
-            if (otherPerson.getLifePoints() < this.getLifePoints())
+            if (otherPerson.getType() == PeopleType.warrior) // attack warrior for more damage
             {
-                if (otherPerson.getType() == PeopleType.warrior) // run away
-                {
-                    lifePoints = -this.getLifePoints();
-                }
-                else // attack a wizard
-                {
-                    lifePoints = (int) (this.getLifePoints()/2);
-                }
+                lifePoints = (this.getLifePoints() / 2);
+            } else // attack a wizard or healer
+            {
+                lifePoints = (int) (this.getLifePoints() / 3);
             }
+
         }
-        else
+
+        else // same nation
         {
-            if (otherPerson.getLifePoints() < this.getLifePoints()) // heal a friend
+            if (otherPerson.getTribe().equals(this.getTribe())) // same tribe
             {
-                lifePoints = (int) (this.getLifePoints() - otherPerson.getLifePoints() / 2);
+                if (otherPerson.getType() == PeopleType.wizard ||
+                        otherPerson.getType() == PeopleType.healer ) // small heal for other wizards or healers
+                {
+                    lifePoints = -(otherPerson.getLifePoints() / 3);
+                }
+
+                else // small heal for warrior of same tribe
+                    lifePoints = -(otherPerson.getLifePoints() / 4);
+
             }
             else
-            {
                 lifePoints = 0;
-            }
+
         }
         return lifePoints;
     }
