@@ -20,7 +20,7 @@ public class Tribe
     private ArrayList<People> livingMembers = new ArrayList<>();
     private AddNaveedPlayersToNaveedNation addNaveedPlayersToNaveedNation = new AddNaveedPlayersToNaveedNation();
     private AddToybergPlayersToToybergNation addToybergPlayersToToybergNation = new AddToybergPlayersToToybergNation();
-    private AddSmilonsPlayersToSmilonsNation addSmilonsPlayersToSmilonsNation = new AddSmilonsPlayersToSmilonsNation();
+    private BuildNationSmilons buildSmilons = new BuildNationSmilons();
     private AddPerezPlayersToPerezNation addPerezPlayersToPerezNation = new AddPerezPlayersToPerezNation();
 
     /**
@@ -62,7 +62,7 @@ public class Tribe
         }
         if(this.nationName.equals("Smilons"))
         {
-            addSmilonsPlayersToSmilonsNation.add(members,nationName,tribeName,tribeLifePoints);
+            buildSmilons.add(members,nationName,tribeName,tribeLifePoints);
         }
     }
 

@@ -2,7 +2,7 @@ package Project02;
 
 import java.util.ArrayList;
 
-public class AddSmilonsPlayersToSmilonsNation implements AddPlayers{
+public class BuildNationSmilons implements AddPlayers{
     @Override
     public void add(ArrayList<People> members, String nationName, String tribeName, int tribeLifePoints)
     {
