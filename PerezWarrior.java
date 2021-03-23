@@ -16,31 +16,26 @@ public class PerezWarrior extends People
     public int encounterStrategy(People otherPerson)
     {
         int lifePoints = 0;
-        if(this.getNation() == otherPerson.getNation())
+        if(this.getNation().equals(otherPerson.getNation())) // from the same nation
         {
-            if(otherPerson.getLifePoints() < this.getLifePoints())
+            if (otherPerson.getTribe().equals(this.getTribe())) // small heal for other tribe members, else ignore them
             {
-                if(otherPerson.getTribe() == this.getTribe())
-                {
-                    lifePoints = -((this.getLifePoints() - otherPerson.getLifePoints()) / 2);
-                }
-                else
-                {
-                    lifePoints = -((this.getLifePoints() - otherPerson.getLifePoints()) / 4);
-                }
+                if (otherPerson.getLifePoints() < this.getLifePoints())
+                    lifePoints = -(otherPerson.getLifePoints() / 4);
             }
         }
+
         else
         {
             int points;
             points = this.getLifePoints() - otherPerson.getLifePoints();
-            if (points > 0)
+            if (points > 0) // more health then opponent, normal damage
             {
                 lifePoints = otherPerson.getLifePoints();
             }
-            else
+            else // less health then opponent, do more damage
             {
-                lifePoints = this.getLifePoints();
+                lifePoints = (int) (this.getLifePoints() * 3);
             }
         }
         return lifePoints;
