@@ -1,15 +1,12 @@
 package Project02;
 
-import Project02.People;
-import Project02.PeopleType;
-
 
 public class ToybergWarrior extends People
 {
     ToybergWarrior(String nation, String tribe, int lifePoints)
     {
         super(nation, tribe, PeopleType.warrior, lifePoints);
-        myDescription = "\tSchaper Warrior";
+        myDescription = "\tToyberg Warrior";
     }
 
 

@@ -1,8 +1,5 @@
 package Project02;
 
-import Project02.People;
-import Project02.PeopleType;
-
 public class SmilonsWarrior2 extends People {
     SmilonsWarrior2(String nation, String tribe, int lifePoints) {
         super(nation, tribe, PeopleType.warrior, lifePoints);

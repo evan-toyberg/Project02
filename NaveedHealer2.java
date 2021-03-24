@@ -5,12 +5,14 @@ import java.nio.charset.StandardCharsets;
 public class NaveedHealer2 extends People
 {
 
-    public NaveedHealer2(String nation, String tribe, PeopleType person, int lifePoints)
+    public NaveedHealer2(String nation, String tribe, int lifePoints)
     {
-        super(nation, tribe, person, lifePoints);
+        super(nation, tribe, PeopleType.healer, lifePoints);
         myDescription = "\tNaveed Healer2";
 
     }
+
+
 
     private int checkIfHealer(People otherPerson, int lifepointGiven)
     {
@@ -53,12 +55,12 @@ public class NaveedHealer2 extends People
             // If other person lifepoints are lower than the player's
             if (this.getLifePoints() > otherPerson.getLifePoints())
             {
-                lifepoints = this.getLifePoints() - 1;
+                lifepoints = this.getLifePoints() / 3;
             }
             // If other person lifepoints are higher than the player's
             else
             {
-                lifepoints = this.getLifePoints() - 5;
+                lifepoints = this.getLifePoints() / 4;
             }
         }
 

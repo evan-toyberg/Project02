@@ -1,7 +1,5 @@
 package Project02;
 
-import Project02.People;
-import Project02.PeopleType;
 public class NaveedWizard extends People
 {
     NaveedWizard(String nation, String tribe, int lifePoints)
@@ -14,7 +12,7 @@ public class NaveedWizard extends People
     {
         int lifepoints;
         // Checking lifepoints if it is less 100
-        if(this.getLifePoints() < 100)
+        if(this.getLifePoints() < 40)
         {
             lifepoints = this.getLifePoints() + additionalLifepoints;
         }
@@ -52,7 +50,7 @@ public class NaveedWizard extends People
             // Both players are from the same tribe
             if (this.getTribe().equals(otherPerson.getTribe()))
             {
-                lifepoints = checkingOtherPeopleType(otherPerson,10);
+               lifepoints = checkingOtherPeopleType(otherPerson,10);
             }
             // Both players are not from the same tribe.
             else
@@ -74,13 +72,13 @@ public class NaveedWizard extends People
                 // Fighting a warrior, but losing 15 lifepoints
                 else
                 {
-                    lifepoints = this.getLifePoints() - 15;
+                    lifepoints = this.getLifePoints() / 4;
                 }
             }
             // Fighting against a wizard
             if (otherPerson.getType().equals(PeopleType.wizard))
             {
-                lifepoints = this.getLifePoints() - 5;
+                lifepoints = this.getLifePoints() / 2;
             }
             // Fighting against a healer
             else

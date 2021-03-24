@@ -30,12 +30,12 @@ public class NaveedWarrior2 extends People
         // Running away
         if (this.getLifePoints() < otherPerson.getLifePoints())
         {
-            lifepoints = -this.getLifePoints() - lifePointsReduced;
+            lifepoints = -this.getLifePoints() / lifePointsReduced;
         }
         // Fighting the other person
         else
         {
-            lifepoints = this.getLifePoints() - lifePointsReduced;
+            lifepoints = this.getLifePoints() / lifePointsReduced;
         }
         return lifepoints;
     }
@@ -70,12 +70,12 @@ public class NaveedWarrior2 extends People
             // Other person is a wizard
             if(otherPerson.getType().equals(PeopleType.wizard))
             {
-                lifepoints = checkingEnemyLifepoints(otherPerson, 4);
+                lifepoints = checkingEnemyLifepoints(otherPerson, 2);
             }
             // Other person is a warrior
             if (otherPerson.getType().equals(PeopleType.warrior))
             {
-                lifepoints = checkingEnemyLifepoints(otherPerson, 10);
+                lifepoints = checkingEnemyLifepoints(otherPerson, 4);
             }
         }
         return lifepoints;

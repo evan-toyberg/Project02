@@ -3,10 +3,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.io.StringBufferInputStream;
 import java.util.ArrayList;
-import Project02.People;
-import Project02.PeopleType;
-import Project02.SchaperWarrior;
-import Project02.SchaperWizard;
 
 /**
  * Class is used to create a tribe under a nation that has a certain amount of life points.

@@ -1,7 +1,5 @@
 package Project02;
 
-import Project02.PeopleType;
-
 /**
  * Used to store, set, and get various values for individual player characters.
  *

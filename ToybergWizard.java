@@ -1,8 +1,5 @@
 package Project02;
 
-import Project02.People;
-import Project02.PeopleType;
-
 
 public class ToybergWizard extends Project02.People
 {

@@ -1,8 +1,5 @@
 package Project02;
 
-import Project02.People;
-import Project02.PeopleType;
-
 
 public class SmilonsWizard2 extends Project02.People {
     SmilonsWizard2(String nation, String tribe, int lifePoints) {

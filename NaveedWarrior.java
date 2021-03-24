@@ -1,8 +1,5 @@
 package Project02;
 
-import Project02.People;
-import Project02.PeopleType;
-
 public class NaveedWarrior extends People
 {
     NaveedWarrior(String nation, String tribe, int lifePoints)
@@ -15,7 +12,7 @@ public class NaveedWarrior extends People
     {
         int lifepoints = 0;
         // Checks if the current lifepoints are not over 100
-        if (this.getLifePoints() < 100)
+        if (this.getLifePoints() < 40)
         {
             lifepoints = this.getLifePoints() + additonalLifepoints ;
         }
@@ -59,22 +56,22 @@ public class NaveedWarrior extends People
             // Getting attacked by a wizard
             if (otherPerson.getType().equals(PeopleType.wizard))
             {
-                lifepoints = this.getLifePoints() - 5;
+                lifepoints = this.getLifePoints() / 2;
             }
 
             // Getting attacked by a warrior
             if (otherPerson.getType().equals(PeopleType.warrior))
             {
                 // Running away
-                if (otherPerson.getLifePoints() > this.getLifePoints())
-                {
-                    lifepoints = -this.getLifePoints();
-                }
-                // Fighting the warrior, but loses 10 lifepoints
-                else
-                {
-                    lifepoints = this.getLifePoints() - 10;
-                }
+               if (otherPerson.getLifePoints() > this.getLifePoints())
+               {
+                   lifepoints = -this.getLifePoints();
+               }
+               // Fighting the warrior
+               else
+               {
+                   lifepoints = this.getLifePoints() / 4;
+               }
             }
             // Fighting a healer, Does not do any damage
             else

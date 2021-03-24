@@ -1,8 +1,5 @@
 package Project02;
 
-import Project02.People;
-import Project02.PeopleType;
-
 public class ToybergHealer extends Project02.People{
     ToybergHealer(String nation, String tribe, int lifePoints)
     {

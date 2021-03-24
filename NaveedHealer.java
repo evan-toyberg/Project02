@@ -1,7 +1,5 @@
 package Project02;
 
-import Project02.People;
-import Project02.PeopleType;
 public class NaveedHealer extends People
 {
 
@@ -20,7 +18,7 @@ public class NaveedHealer extends People
             // Can only heal by a healer
             if(otherPerson.getType().equals(PeopleType.healer))
             {
-                if(this.getLifePoints() < 100)
+                if(this.getLifePoints() < 40)
                 {
                     lifepoints = this.getLifePoints() + 5;
                 }

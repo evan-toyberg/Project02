@@ -1,12 +1,10 @@
 package Project02;
 
-import Project02.Nation;
-import Project02.People;
 import java.util.*;
 
 public class World
 {
-    private final int worldLifePoints = 8000;
+    private final int worldLifePoints = 4000;
     private final int numberOfRounds = 40;
     private ArrayList<Nation> allNations = new ArrayList<>();
     private ArrayList<Nation> allLivingNations = new ArrayList<>();
