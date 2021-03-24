@@ -18,7 +18,7 @@ public class Tribe
     private int tribeLifePoints;
     private ArrayList<People> members = new ArrayList<>();
     private ArrayList<People> livingMembers = new ArrayList<>();
-    private AddNaveedPlayersToNaveedNation addNaveedPlayersToNaveedNation = new AddNaveedPlayersToNaveedNation();
+    private BuildNationNaveed buildNationNaveed = new BuildNationNaveed();
     private AddToybergPlayersToToybergNation addToybergPlayersToToybergNation = new AddToybergPlayersToToybergNation();
     private BuildNationSmilons buildSmilons = new BuildNationSmilons();
     private AddPerezPlayersToPerezNation addPerezPlayersToPerezNation = new AddPerezPlayersToPerezNation();
@@ -50,7 +50,7 @@ public class Tribe
     {
         if (this.nationName.equals("Naveed"))
         {
-            addNaveedPlayersToNaveedNation.add(members,nationName,tribeName,tribeLifePoints);
+            buildNationNaveed.add(members,nationName,tribeName,tribeLifePoints);
         }
         if (this.nationName.equals("Toyberg"))
         {
