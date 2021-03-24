@@ -14,12 +14,12 @@ public class NaveedWizard2 extends People
         // If the other person type is healer.
         if (otherPerson.getType().equals(PeopleType.healer) && this.getLifePoints() < 40)
         {
-            lifepoints = this.getLifePoints() + lifepointGiven;
+            lifepoints = this.getLifePoints() - lifepointGiven;
         }
         // If the other person type is a warrior and wizard
         else
         {
-            lifepoints = this.getLifePoints();
+            lifepoints = 0;
         }
         return lifepoints;
     }

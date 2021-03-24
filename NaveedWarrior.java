@@ -11,14 +11,14 @@ public class NaveedWarrior extends People
     public int encounterStrategy2(int additonalLifepoints)
     {
         int lifepoints = 0;
-        // Checks if the current lifepoints are not over 100
+        // Checks if the current lifepoints are not over 55
         if (this.getLifePoints() < 40)
         {
-            lifepoints = this.getLifePoints() + additonalLifepoints ;
+            lifepoints = this.getLifePoints() - additonalLifepoints ;
         }
         else
         {
-            lifepoints = this.getLifePoints();
+            lifepoints = 0;
         }
         return lifepoints;
     }
@@ -47,7 +47,7 @@ public class NaveedWarrior extends People
             // Warrior cannot increase their lifepoints without a healer
             else
             {
-                lifepoints = this.getLifePoints();
+                lifepoints = 0;
             }
         }
         // Both players are not from the same nation.

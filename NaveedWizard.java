@@ -14,12 +14,12 @@ public class NaveedWizard extends People
         // Checking lifepoints if it is less 100
         if(this.getLifePoints() < 40)
         {
-            lifepoints = this.getLifePoints() + additionalLifepoints;
+            lifepoints = this.getLifePoints() - additionalLifepoints;
         }
         // Does not add any lifepoints into the player
         else
         {
-            lifepoints = this.getLifePoints();
+            lifepoints = 0;
         }
         return lifepoints;
     }
