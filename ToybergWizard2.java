@@ -1,10 +1,12 @@
 package Project02;
 
+import Project02.PeopleType;
 
-public class ToybergWizard extends People {
 
-    ToybergWizard(String nation, String tribe, int lifePoints) {
-        super(nation, tribe, Project02.PeopleType.wizard, lifePoints);
+public class ToybergWizard2 extends People {
+
+    ToybergWizard2(String nation, String tribe, int lifePoints) {
+        super(nation, tribe, PeopleType.wizard, lifePoints);
         myDescription = "\tToyberg Wizard";
         boolean spellLearned = false;
     }
@@ -13,7 +15,7 @@ public class ToybergWizard extends People {
         int lifePoints = 0;
         if (this.getNation() != otherPerson.getNation()){
             if (otherPerson.getLifePoints() < this.getLifePoints()){
-                if (otherPerson.getType() == Project02.PeopleType.warrior){ // run away
+                if (otherPerson.getType() == PeopleType.warrior){ // run away
                     lifePoints = -this.getLifePoints();
                 }
                 else{ // attack a wizard

@@ -15,9 +15,9 @@ public class Tribe
     private ArrayList<People> members = new ArrayList<>();
     private ArrayList<People> livingMembers = new ArrayList<>();
     private BuildNationNaveed buildNationNaveed = new BuildNationNaveed();
-    private AddToybergPlayersToToybergNation addToybergPlayersToToybergNation = new AddToybergPlayersToToybergNation();
+    private BuildNationToyberg buildNationToyberg = new BuildNationToyberg();
     private BuildNationSmilons buildSmilons = new BuildNationSmilons();
-    private AddPerezPlayersToPerezNation addPerezPlayersToPerezNation = new AddPerezPlayersToPerezNation();
+    private BuildNationPerez buildNationPerez = new BuildNationPerez();
 
     /**
      * Create tribes under the given nation using the people types warrior, wizzard, healer.
@@ -50,11 +50,11 @@ public class Tribe
         }
         if (this.nationName.equals("Toyberg"))
         {
-            addToybergPlayersToToybergNation.add(members,nationName,tribeName,tribeLifePoints);
+            buildNationToyberg.add(members,nationName,tribeName,tribeLifePoints);
         }
         if(this.nationName.equals("Perez"))
         {
-            addPerezPlayersToPerezNation.add(members,nationName,tribeName,tribeLifePoints);
+            buildNationPerez.add(members,nationName,tribeName,tribeLifePoints);
         }
         if(this.nationName.equals("Smilons"))
         {
@@ -88,18 +88,9 @@ public class Tribe
                 }
             }
         }
-        //System.out.println(livingMembers);
         return livingMembers;
     }
-    /*
-    public void printMembers()
-    {
-        for(int i = 0; i < 2; i++)
-        {
-            System.out.println(people.get(i));
-        }
-    }
-*/
+
 
 
     /**
