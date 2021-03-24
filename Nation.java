@@ -16,14 +16,11 @@ public class Nation
      *
      * @param name  name of the nation
      * @param lifePoints number of lifepoints allotted for this nation
-     * @param numWarriorsPerTribe Require 1 - the number of Warriors this Nation will have per tribe
-     * @param numWizardsPerTribe  Require 1 - the number of Wizards this Nation will have per tribe
-     * @param numHealersPerTribe  Require 1 - the number of Healers this Nation will have per tribe
-     * @throws IllegalArgumentException total number of Warriors + Wizards + Healers must equal 6
      */
     public Nation(String name, int lifePoints)
     {
-
+        nationName = name;
+        nationLifePoints = lifePoints;
         for(int i = 1; i <=3 ; i++)
         {
             this.tribes.add(new Tribe(nationName, "Tribe" + i, nationLifePoints / 3));
