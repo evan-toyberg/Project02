@@ -2,6 +2,11 @@ package Project02;
 
 import java.util.*;
 
+/**
+ * Runs the game and prints out the encounters of each round.
+ * Prints out the surviving nation or no nations.
+ * Operates the damage of the two players.
+ */
 public class World
 {
     private final int worldLifePoints = 4000;
@@ -24,6 +29,11 @@ public class World
         worldCreatedPeople.addAll(getWorldCreatedPopulation());
     }
 
+    /**
+     * Runs the game and calling out methods of the encounters
+     * After the encounters, it prints out the surviving nation
+     * or no nation at all.
+     */
     public void war()
     {
         ArrayList<Integer> worldSurvivingPeople = new ArrayList<>();
@@ -61,7 +71,10 @@ public class World
     }
 
 
-
+    /**
+     * Creates the 4 nations in the world and calling out nation
+     * to make the tribes.
+     */
     public void createWorld()
     {
         // add Nations participating in the game to nations ArrayList.
@@ -71,7 +84,10 @@ public class World
         }
     }
 
-
+    /**
+     * This method adds the created nations into the ArrayList
+     * @return
+     */
     public ArrayList<People> getWorldCreatedPopulation()
     {
         ArrayList<People> livingPeople = new ArrayList<>();
@@ -82,7 +98,10 @@ public class World
         return livingPeople;
     }
 
-
+    /**
+     * This method adds the players that are alive.
+     * @return
+     */
     public ArrayList<Integer> getWorldSurvivingPeople()
     {
         ArrayList<Integer> survivors = new ArrayList<>();
@@ -96,7 +115,10 @@ public class World
         return survivors;
     }
 
-
+    /**
+     * Adding nations in the allLivingNations ArrayList if they are alive.
+     * @return
+     */
     public Set<String> getSurvivingNations()
     {
         Set<String> survivingNations = new HashSet<>();
@@ -111,7 +133,13 @@ public class World
         return survivingNations;
     }
 
-
+    /**
+     * This method takes a parameter of two people and checks if the two people are not from the same
+     * nation. Then the two people fight each other and both loses damage. It prints out a statement
+     * of the life points of each other.
+     * @param p1 A person from the People class
+     * @param p2 A person from the People class
+     */
     public void encounter(Integer person1, Integer person2)
     {
         Integer person1LifePointsToUse;
@@ -156,7 +184,11 @@ public class World
 
     }
 
-
+    /**
+     * This method plays every round and prints out the round number
+     * and the number of players encountering in that round.
+     * @param combatants An Arraylist of nations
+     */
     public void playOneRound(ArrayList<Integer> combatants)
     {
         System.out.println(combatants.size());

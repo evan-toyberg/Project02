@@ -3,6 +3,10 @@ package Project02;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Add the 3 different types of players into 3 tribes. Each tribe should have 6 players.
+ * Each nation should have 18 players.
+ */
 public class BuildNationToyberg implements AddPlayers
 {
     private final int WARRIOR = 1;
