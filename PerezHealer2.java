@@ -20,11 +20,11 @@ public class PerezHealer2 extends Project02.People
         {
             if (otherPerson.getType() == PeopleType.warrior) // attack warrior for more damage then others
                 {
-                    lifePoints = (this.getLifePoints()/2);
+                    lifePoints = (this.getLifePoints()/3);
                 }
                 else // attack a wizard or healer
                 {
-                    lifePoints = (int) (this.getLifePoints()/3);
+                    lifePoints = (int) (this.getLifePoints()/4);
                 }
 
         }
@@ -33,7 +33,7 @@ public class PerezHealer2 extends Project02.People
         {
             if (otherPerson.getLifePoints() < this.getLifePoints()) // heal a friend if less health
             {
-                lifePoints = (int) (-otherPerson.getLifePoints() / 2);
+                lifePoints = (int) (-otherPerson.getLifePoints() / 3);
             }
 
         }

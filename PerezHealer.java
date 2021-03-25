@@ -20,13 +20,13 @@ public class PerezHealer extends Project02.People
                 }
                 else // attack a wizard or healer
                 {
-                    lifePoints = (int) (this.getLifePoints()/3);
+                    lifePoints = (int) (this.getLifePoints()/5);
                 }
             }
 
             else // if healer has equal or more health then opponent
             {
-                lifePoints = (this.getLifePoints()/2);
+                lifePoints = (this.getLifePoints()/4);
             }
         }
 
@@ -34,7 +34,7 @@ public class PerezHealer extends Project02.People
         {
             if (otherPerson.getLifePoints() < this.getLifePoints()) // heal a friend if less health
             {
-                lifePoints = (int) (-otherPerson.getLifePoints() * 2);
+                lifePoints = (int) (-otherPerson.getLifePoints() / 3);
             }
             else
             {

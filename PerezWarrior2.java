@@ -19,7 +19,7 @@ public class PerezWarrior2 extends People
                 lifePoints = otherPerson.getLifePoints() / 4;
 
             else
-                lifePoints = this.getLifePoints() / 4;
+                lifePoints = this.getLifePoints() / 5;
 
         }
 

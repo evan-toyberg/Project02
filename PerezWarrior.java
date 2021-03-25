@@ -32,7 +32,7 @@ public class PerezWarrior extends People
             }
             else // less health then opponent, do more damage
             {
-                lifePoints = (int) (this.getLifePoints() * 3);
+                lifePoints = (int) (this.getLifePoints() /3);
             }
         }
         return lifePoints;

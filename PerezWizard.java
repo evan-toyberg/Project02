@@ -15,10 +15,10 @@ public class PerezWizard extends Project02.People
         {
             if (otherPerson.getType() == PeopleType.warrior) // attack warrior for more damage
             {
-                lifePoints = (this.getLifePoints() / 2);
+                lifePoints = (this.getLifePoints() /4);
             } else // attack a wizard or healer
             {
-                lifePoints = (int) (this.getLifePoints() / 3);
+                lifePoints = (int) (this.getLifePoints() / 5);
             }
 
         }
@@ -30,11 +30,11 @@ public class PerezWizard extends Project02.People
                 if (otherPerson.getType() == PeopleType.wizard ||
                         otherPerson.getType() == PeopleType.healer ) // small heal for other wizards or healers
                 {
-                    lifePoints = -(otherPerson.getLifePoints() / 3);
+                    lifePoints = -(otherPerson.getLifePoints() / 4);
                 }
 
                 else // small heal for warrior of same tribe
-                    lifePoints = -(otherPerson.getLifePoints() / 4);
+                    lifePoints = -(otherPerson.getLifePoints() / 5);
 
             }
             else
