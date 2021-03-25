@@ -2,18 +2,20 @@ package Project02;
 
 public class PerezHealer2 extends Project02.People
 {
-    /**
-     * Attacks warriors for more damage then Healer 1, but heals for less
-     * @param nation
-     * @param tribe
-     * @param lifePoints
-     */
+
     PerezHealer2(String nation, String tribe, int lifePoints)
     {
         super(nation, tribe, PeopleType.healer, lifePoints);
         myDescription = "\tPerez Healer 2";
     }
 
+    /**
+     *
+     * @param otherPerson
+     * Reference to opponent
+     * @return
+     * Attacks Warriors for extra damage, but heals for less then Healer 1
+     */
     public int encounterStrategy(Project02.People otherPerson) {
         int lifePoints = 0;
         if (this.getNation() != otherPerson.getNation()) // not from the same nation
@@ -33,7 +35,7 @@ public class PerezHealer2 extends Project02.People
         {
             if (otherPerson.getLifePoints() < this.getLifePoints()) // heal a friend if less health
             {
-                lifePoints = (int) (-otherPerson.getLifePoints() / 3);
+                lifePoints = (int) (-otherPerson.getLifePoints() / 5);
             }
 
         }

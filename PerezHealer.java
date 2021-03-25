@@ -8,6 +8,15 @@ public class PerezHealer extends Project02.People
         myDescription = "\tPerez Healer";
     }
 
+    /**
+     *
+     * @param otherPerson
+     * Reference to opponent
+     * @return
+     * Healer runs away from Warriors that have more health then them.
+     *
+     * Only heals if other person has less life points then them.
+     */
     public int encounterStrategy(Project02.People otherPerson) {
         int lifePoints = 0;
         if (this.getNation() != otherPerson.getNation()) // not from the same nation

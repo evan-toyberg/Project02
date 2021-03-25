@@ -9,6 +9,15 @@ public class PerezWizard extends Project02.People
         myDescription = "\tPerez Wizard";
     }
 
+    /**
+     *
+     * @param otherPerson
+     * Reference to opponent
+     * @return
+     * Attacks warriors for extra damage
+     *
+     * Small heal for allies from the same tribe, bonus if they are a wizard or healer
+     */
     public int encounterStrategy(Project02.People otherPerson) {
         int lifePoints = 0;
         if (this.getNation() != otherPerson.getNation()) // if they are not from the same nation

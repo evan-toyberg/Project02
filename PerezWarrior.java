@@ -9,7 +9,15 @@ public class PerezWarrior extends People
         myDescription = "\tPerez Warrior";
     }
 
-
+    /**
+     *
+     * @param otherPerson
+     * Reference to opponent
+     * @return
+     * Small heal for allies from the same tribe, else ignores them
+     *
+     * Does more damage when at lower health then opponent
+     */
     public int encounterStrategy(People otherPerson)
     {
         int lifePoints = 0;
@@ -18,7 +26,7 @@ public class PerezWarrior extends People
             if (otherPerson.getTribe().equals(this.getTribe())) // small heal for other tribe members, else ignore them
             {
                 if (otherPerson.getLifePoints() < this.getLifePoints())
-                    lifePoints = -(otherPerson.getLifePoints() / 4);
+                    lifePoints = -(otherPerson.getLifePoints() / 6);
             }
         }
 
@@ -28,7 +36,7 @@ public class PerezWarrior extends People
             points = this.getLifePoints() - otherPerson.getLifePoints();
             if (points > 0) // more health then opponent, normal damage
             {
-                lifePoints = otherPerson.getLifePoints();
+                lifePoints = (otherPerson.getLifePoints()/4);
             }
             else // less health then opponent, do more damage
             {

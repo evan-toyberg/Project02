@@ -9,7 +9,13 @@ public class PerezWarrior2 extends People
         myDescription = "\tPerez Warrior 2";
     }
 
-
+    /**
+     *
+     * @param otherPerson
+     * Reference to opponent
+     * @return
+     * Attacks for more damage when enemy is has more life points
+     */
     public int encounterStrategy(People otherPerson)
     {
         int lifePoints = 0;
@@ -20,11 +26,7 @@ public class PerezWarrior2 extends People
 
             else
                 lifePoints = this.getLifePoints() / 5;
-
         }
-
-
         return lifePoints;
     }
-
 }
