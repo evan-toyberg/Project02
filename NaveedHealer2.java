@@ -31,7 +31,7 @@ public class NaveedHealer2 extends People
         // If the other person type is healer.
         if (otherPerson.getType().equals(PeopleType.healer) && this.getLifePoints() < 40)
         {
-            lifepoints = this.getLifePoints() - lifepointGiven;
+            lifepoints = -(this.getLifePoints() / lifepointGiven);
         }
         // If the other person type is a warrior and wizard
         else
@@ -58,12 +58,12 @@ public class NaveedHealer2 extends People
             // From same tribe
             if (this.getTribe().equals(otherPerson.getTribe()))
             {
-                lifepoints = checkIfHealer(otherPerson, 10);
+                lifepoints = checkIfHealer(otherPerson, 5);
             }
             // From different tribe
             else
             {
-                lifepoints = checkIfHealer(otherPerson, 5);
+                lifepoints = checkIfHealer(otherPerson, 3);
             }
         }
         // From different nations

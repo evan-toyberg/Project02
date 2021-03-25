@@ -32,7 +32,7 @@ public class NaveedHealer extends People
             {
                 if(this.getLifePoints() < 40)
                 {
-                    lifepoints = this.getLifePoints() - 5;
+                    lifepoints = -(this.getLifePoints() / 5);
                 }
                 else
                 {
