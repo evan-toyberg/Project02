@@ -22,7 +22,7 @@ public class PerezWarrior2 extends People
         if(!this.getNation().equals(otherPerson.getNation())) // not from the same nation, else do nothing
         {
             if (otherPerson.getLifePoints() > this.getLifePoints()) // if enemy has more life points
-                lifePoints = otherPerson.getLifePoints() / 4;
+                lifePoints = this.getLifePoints() / 4;
 
             else
                 lifePoints = this.getLifePoints() / 5;

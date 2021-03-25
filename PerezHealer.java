@@ -43,7 +43,7 @@ public class PerezHealer extends Project02.People
         {
             if (otherPerson.getLifePoints() < this.getLifePoints()) // heal a friend if less health
             {
-                lifePoints = (int) (-otherPerson.getLifePoints() / 3);
+                lifePoints = (int) (-this.getLifePoints() / 3);
             }
             else
             {

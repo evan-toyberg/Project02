@@ -30,14 +30,14 @@ public class PerezWizard2 extends Project02.People
             }
             else // attack a warrior for less damage
             {
-                lifePoints = (int) (this.getLifePoints() / 3);
+                lifePoints = (int) (this.getLifePoints() / 4);
             }
         }
 
         else // same nation
         {
             if (otherPerson.getTribe().equals(this.getTribe())) // same tribe
-                lifePoints = otherPerson.getLifePoints() / 5;
+                lifePoints = this.getLifePoints() / 5;
 
             else // not from the same tribe, do nothing
                 lifePoints = 0;

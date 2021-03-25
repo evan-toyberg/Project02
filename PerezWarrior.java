@@ -26,7 +26,7 @@ public class PerezWarrior extends People
             if (otherPerson.getTribe().equals(this.getTribe())) // small heal for other tribe members, else ignore them
             {
                 if (otherPerson.getLifePoints() < this.getLifePoints())
-                    lifePoints = -(otherPerson.getLifePoints() / 6);
+                    lifePoints = -(this.getLifePoints() / 6);
             }
         }
 
@@ -36,7 +36,7 @@ public class PerezWarrior extends People
             points = this.getLifePoints() - otherPerson.getLifePoints();
             if (points > 0) // more health then opponent, normal damage
             {
-                lifePoints = (otherPerson.getLifePoints()/4);
+                lifePoints = (this.getLifePoints()/4);
             }
             else // less health then opponent, do more damage
             {
