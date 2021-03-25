@@ -29,10 +29,10 @@ public class BuildNationToyberg implements AddPlayers
         {
             addMember(HEALER);
             addMember(WARRIOR2);
-            addMember(WARRIOR);
+            addMember(WARRIOR2);
             addMember(WARRIOR);
             addMember(WIZARD);
-            addMember(WIZARD);
+            addMember(WIZARD2);
         }
         if(tribeName.equals("Tribe2"))
         {
@@ -47,9 +47,9 @@ public class BuildNationToyberg implements AddPlayers
         {
             addMember(HEALER);
             addMember(WARRIOR);
+            addMember(WARRIOR2);
             addMember(WARRIOR);
-            addMember(WARRIOR);
-            addMember(WIZARD);
+            addMember(WIZARD2);
             addMember(WIZARD);
         }
     }

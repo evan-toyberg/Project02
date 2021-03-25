@@ -3,35 +3,40 @@ package Project02;
 import Project02.PeopleType;
 
 
-public class ToybergWizard2 extends People {
+public class ToybergWizard2 extends Project02.People {
 
+    /**
+     * Attacks on healers are based on enemy's health.
+     * Attacks on warriors are based on this wizard's health.
+     * Attacks on wizards are based on enemy's max health.
+     *
+     * Can steal health from enemies
+     *
+     * Has no benefits to meeting a player of same nation or tribe
+     *
+     */
     ToybergWizard2(String nation, String tribe, int lifePoints) {
         super(nation, tribe, PeopleType.wizard, lifePoints);
         myDescription = "\tToyberg Wizard";
-        boolean spellLearned = false;
     }
 
-    public int encounterStrategy(People otherPerson) {
+    public int encounterStrategy(Project02.People otherPerson) {
         int lifePoints = 0;
         if (this.getNation() != otherPerson.getNation()){
-            if (otherPerson.getLifePoints() < this.getLifePoints()){
-                if (otherPerson.getType() == PeopleType.warrior){ // run away
-                    lifePoints = -this.getLifePoints();
-                }
-                else{ // attack a wizard
-                    lifePoints = (int) (this.getLifePoints()/2);
-                }
+            if(otherPerson.getType() == PeopleType.healer){
+                lifePoints = otherPerson.getLifePoints();
+                modifyLifePoints(lifePoints / 5);
+            }
+
+            else if(otherPerson.getType() == PeopleType.warrior){
+                lifePoints = this.getLifePoints();
+                modifyLifePoints(lifePoints / 10);
+            }
+
+            else{
+                lifePoints = otherPerson.MAX_LIFEPOINTS / 5;
             }
         }
-//        else
-//        {
-//            if (otherPerson.getLifePoints() < this.getLifePoints()){ // heal a friend
-//                lifePoints = (int) (this.getLifePoints() - otherPerson.getLifePoints() / 2);
-//            }
-//            else{
-//                lifePoints = 0;
-//            }
-//        }
         return lifePoints;
     }
 

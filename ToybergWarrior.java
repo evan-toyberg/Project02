@@ -3,6 +3,7 @@ package Project02;
 
 public class ToybergWarrior extends Project02.People {
 
+
     ToybergWarrior(String nation, String tribe, int lifePoints){
         super(nation, tribe, Project02.PeopleType.warrior, lifePoints);
         myDescription = "\tToyberg Warrior";
@@ -33,33 +34,29 @@ public class ToybergWarrior extends Project02.People {
 
         else{
             int points = this.getLifePoints() - otherPerson.getLifePoints();
-            if(getLifePoints() > this.MAX_LIFEPOINTS / 2){
+            if(points > 0){
                 lifePoints = this.getLifePoints();
             }
 
-            else if (points > 0 && getLifePoints() < this.MAX_LIFEPOINTS / 2){ // if less than 1/2 health
-                if(getLifePoints() > 2){
-                    lifePoints = this.getLifePoints();
-                    modifyLifePoints(-2);
+            else{
+                if(this.strengthBoost){
+                    this.strengthBoost = false;
+                    return lifePoints + this.MAX_LIFEPOINTS / 10;
                 }
-
-                else if(points < 0 && getLifePoints() < this.MAX_LIFEPOINTS / 2){ // do some extra damage in return for health
-                    lifePoints = this.getLifePoints();
-                    useBandage();
-                }
+                lifePoints = this.getLifePoints() / 2;
             }
-        }
 
-        if(this.strengthBoost){
-            this.strengthBoost = false;
-            return lifePoints + 5;
         }
 
         return lifePoints;
     }
 
+    /**
+     * uses a disposable bandage to heal injuries. Character begins with 1 bandage and
+     * gets one additional each time he encounters a friendly healer
+     */
     private void useBandage(){
         numBandages -= 1;
-        modifyLifePoints(5);
+        modifyLifePoints(this.MAX_LIFEPOINTS / 10);
     }
 }
