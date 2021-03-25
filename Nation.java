@@ -4,6 +4,11 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.ArrayList;
 
+/**
+ * This class creates named Nation objects with undefined number of life points.
+ * Defines a Nation is made up of 3 Tribes, each tribe gets 1/3 of Nation's life points.
+ * Keeps track of population of Nation and Tribes and determines if Nation and Tribes are alive or dead.
+ */
 public class Nation
 {
     private int nationLifePoints;
@@ -13,9 +18,11 @@ public class Nation
     private ArrayList<People> livingPopulation = new ArrayList<>();
 
     /**
+     * Create a nation with name and number of lifepoints.
+     * This nation has 3 tribes with equal amounts of lifepoints (nation's life points / 3)
      *
-     * @param name  name of the nation
-     * @param lifePoints number of lifepoints allotted for this nation
+     * @param name name of the Nation
+     * @param lifePoints number of lifepoints assigned to nation
      */
     public Nation(String name, int lifePoints)
     {
@@ -30,7 +37,9 @@ public class Nation
         livingPopulation.addAll(population);
     }
 
-
+    /**
+     * @return population of this nation
+     */
     public ArrayList<People> getNationPopulation()
     {
         nationLifePoints = 0;
@@ -48,7 +57,9 @@ public class Nation
         return livingPopulation;
     }
 
-
+    /**
+     * @return name of this nation
+     */
     public String getNationName()
     {
         return nationName;

@@ -2,12 +2,27 @@ package Project02;
 
 public class NaveedWizard2 extends People
 {
+    /**
+     * Wizard can only get healed by a healer. If the other person is from same tribe and a healer
+     * type, the wizard can get an extra 2 lifepoints. If the other person is from a different tribe,
+     * the wizard can get an extra 10 lifepoints. This wizard will never run away and will fight to the
+     * death. The wizard will not get any damage from a healer.
+     * @param nation
+     * @param tribe
+     * @param lifePoints
+     */
     NaveedWizard2(String nation, String tribe, int lifePoints)
     {
         super(nation, tribe, PeopleType.wizard, lifePoints);
         myDescription = "Naveed Wizard2";
     }
-
+    /**
+     * Checking if the other person is a healer and the player has less than
+     * 40 lifepoints.
+     * @param otherPerson
+     * @param lifepointGiven
+     * @return lifepoints
+     */
     private int checkIfHealer(People otherPerson, int lifepointGiven)
     {
         int lifepoints;
@@ -24,6 +39,13 @@ public class NaveedWizard2 extends People
         return lifepoints;
     }
 
+    /**
+     * Checking if the two players are from the same nation.
+     * If not, the players fight each other or the player runs
+     * away.
+     * @param otherPerson
+     * @return
+     */
     @Override
     public int encounterStrategy(People otherPerson)
     {

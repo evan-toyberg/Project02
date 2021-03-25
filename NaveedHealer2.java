@@ -2,6 +2,14 @@ package Project02;
 
 import java.nio.charset.StandardCharsets;
 
+ /** The healer heals people from the same nation.
+ * If the two players are from the same tribe and the other player is the healer,
+ * the healer can be healed. If other player is not a healer, nothing happens to the
+ * healer. If the other person is from the same tribe, he/she heals him/her by 10 lifepoints.
+ * If the other person is from the same tribe, he/she heals him/her by 5 lifepoints.
+  * If the two players are not from the same nation, healer can only fight a healer. Healer
+ * will run away if fighting warrior or wizard.
+ */
 public class NaveedHealer2 extends People
 {
 
@@ -9,11 +17,14 @@ public class NaveedHealer2 extends People
     {
         super(nation, tribe, PeopleType.healer, lifePoints);
         myDescription = "\tNaveed Healer2";
-
     }
 
-
-
+    /**
+     * Checking if the other person is a healer if the two players are healers.
+     * @param otherPerson
+     * @param lifepointGiven
+     * @return lifepoints
+     */
     private int checkIfHealer(People otherPerson, int lifepointGiven)
     {
         int lifepoints;
@@ -30,6 +41,13 @@ public class NaveedHealer2 extends People
         return lifepoints;
     }
 
+    /**
+     * Checking if the two players are from the same nation.
+     * If not, the players fight each other or the player runs
+     * away.
+     * @param otherPerson
+     * @return
+     */
     @Override
     public int encounterStrategy(People otherPerson)
     {

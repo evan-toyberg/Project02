@@ -1,5 +1,15 @@
 package Project02;
 
+/**
+ * Warrior can be heal by a healer from the same nation.
+ * If two players are from the same tribe and have less than 40 lifepoints,
+ * warrior can get an extra 10 lifepoints. If two players are not from the
+ * same tribe, the warrior can get an extra 5 lifepoints.
+ * If the two players are not from the same nation, two players fight each other.
+ * If the other person is a warrior and has a higher lifepoints, the warrior will
+ * run away. If the other person is a healer or a wizard, the warrior will fight.
+ */
+
 public class NaveedWarrior extends People
 {
     NaveedWarrior(String nation, String tribe, int lifePoints)
@@ -8,7 +18,13 @@ public class NaveedWarrior extends People
         myDescription = "\tNaveed Warrior";
     }
 
-    public int encounterStrategy2(int additonalLifepoints)
+    /**
+     * Giving additional lifepoints to the player if their lifepoints
+     * are below 40.
+     * @param additonalLifepoints
+     * @return
+     */
+    private int encounterStrategy2(int additonalLifepoints)
     {
         int lifepoints = 0;
         // Checks if the current lifepoints are not over 55
@@ -23,6 +39,13 @@ public class NaveedWarrior extends People
         return lifepoints;
     }
 
+    /**
+     * Checking if the two players are from the same nation.
+     * If not, the players fight each other or the player runs
+     * away.
+     * @param otherPerson
+     * @return
+     */
     @Override
     public int encounterStrategy(People otherPerson)
     {

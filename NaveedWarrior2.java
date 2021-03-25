@@ -1,5 +1,16 @@
 package Project02;
 
+/**
+ * Warrior can be healed by a healer only if from same nation.
+ * If both players are from the same tribe and other person
+ * is a healer, then the warrior can get an extra 15 lifepoints,
+ * but does not if other person is a warrior or wizard.
+ * If both players are not from the same nation, they attack.
+ * If the other person is a healer, the warrior does not lose health.
+ * If the other person is a wizard or warrior, the warrior will lose
+ * some health.
+ */
+
 public class NaveedWarrior2 extends People
 {
     NaveedWarrior2(String nation, String tribe, int lifePoints)
@@ -8,6 +19,12 @@ public class NaveedWarrior2 extends People
         myDescription = "\tNaveed Warrior2";
     }
 
+    /**
+     * Checking if the other person is a healer if the two players are healers.
+     * @param otherPerson
+     * @param lifepointGiven
+     * @return lifepoints
+     */
     private int checkIfHealer(People otherPerson, int lifepointGiven)
     {
         int lifepoints;
@@ -24,7 +41,14 @@ public class NaveedWarrior2 extends People
         return lifepoints;
     }
 
-    public int checkingEnemyLifepoints(People otherPerson, int lifePointsReduced)
+    /**
+     * Checks if the other person lifepoints are bigger and causes the player to run
+     * away
+     * @param otherPerson
+     * @param lifePointsReduced
+     * @return
+     */
+    private int checkingEnemyLifepoints(People otherPerson, int lifePointsReduced)
     {
         int lifepoints = 0;
         // Running away
@@ -40,6 +64,13 @@ public class NaveedWarrior2 extends People
         return lifepoints;
     }
 
+    /**
+     * Checking if the two players are from the same nation.
+     * If not, the players fight each other or the player runs
+     * away.
+     * @param otherPerson
+     * @return
+     */
     @Override
     public int encounterStrategy(People otherPerson)
     {

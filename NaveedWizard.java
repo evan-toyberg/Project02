@@ -8,7 +8,12 @@ public class NaveedWizard extends People
         myDescription = "\tNaveed Wizard";
     }
 
-    public int encounterStrategy2(int additionalLifepoints)
+    /**
+     * Gives the lifepoints to the player
+     * @param additionalLifepoints
+     * @return
+     */
+    private int encounterStrategy2(int additionalLifepoints)
     {
         int lifepoints;
         // Checking lifepoints if it is less 100
@@ -24,7 +29,13 @@ public class NaveedWizard extends People
         return lifepoints;
     }
 
-    public int checkingOtherPeopleType(People otherPerson, int additionalLifepoints)
+    /**
+     * Checking if the other person type
+     * @param otherPerson
+     * @param additionalLifepoints
+     * @return
+     */
+    private int checkingOtherPeopleType(People otherPerson, int additionalLifepoints)
     {
         int lifepoints = 0;
         // Checking if the other person type is a healer or wizard
@@ -40,6 +51,13 @@ public class NaveedWizard extends People
         return lifepoints;
     }
 
+    /**
+     * Checking if the two players are from the same nation.
+     * If not, the players fight each other or the player runs
+     * away.
+     * @param otherPerson
+     * @return
+     */
     @Override
     public int encounterStrategy(People otherPerson)
     {
