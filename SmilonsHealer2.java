@@ -26,7 +26,7 @@ public class SmilonsHealer2 extends Project02.People{
         {
             if (otherPerson.getLifePoints() < this.getLifePoints()) // heal a friend
             {
-                lifePoints = (int) (this.getLifePoints() - otherPerson.getLifePoints() / 2);
+                lifePoints = (int) -(this.getLifePoints() / 3);
             }
             else
             {
