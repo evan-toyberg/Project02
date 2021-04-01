@@ -16,7 +16,7 @@ public abstract class People
     protected String myDescription;
     private int myLifePoints;
     private boolean dead;
-    public final int MAX_LIFEPOINTS;
+    public final int MAX_LIFEPOINTS = 100;
 
 
     /**
@@ -37,7 +37,6 @@ public abstract class People
         myDescription = me.getDescription();
         myLifePoints = lifePoints;
         dead = false;
-        MAX_LIFEPOINTS = lifePoints;
     }
 
     /**
