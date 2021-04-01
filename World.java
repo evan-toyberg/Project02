@@ -80,7 +80,7 @@ public class World
         // add Nations participating in the game to nations ArrayList.
         String[] nationNames = {"Smilons", "Naveed", "Perez", "Toyberg"};
         for(String name : nationNames){
-            allNations.add(new Nation(name, worldLifePoints / nationNames.length));
+            allNations.add(new Nation(name, (worldLifePoints / 3) + 470));
         }
     }
 
