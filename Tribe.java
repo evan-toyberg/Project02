@@ -61,7 +61,7 @@ public class Tribe
         {
             buildSmilons.add(members,nationName,tribeName,tribeLifePoints);
         }
-        if(this.nationName.equals("Special Encounter"))
+        if(this.nationName.equals("Special Scenario"))
         {
             buildSpecialEncounters.add(members,nationName,tribeName,tribeLifePoints);
         }
