@@ -10,7 +10,6 @@ public class BuildSpecialEncounters implements AddPlayers {
         {
             members.add(new Snakes(nationName, tribeName, 2));
 
-
         }
         if(tribeName.equals("Traps"))
         {
@@ -18,7 +17,7 @@ public class BuildSpecialEncounters implements AddPlayers {
         }
         if(tribeName.equals("Character"))
         {
-
+            members.add(new Warchief(nationName, tribeName, 2));
         }
     }
 }
