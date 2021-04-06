@@ -10,7 +10,11 @@ public class Snakes extends People {
 
     public int encounterStrategy(People otherPerson) {
 
-        return 0;
-    }
+        if (otherPerson.getNation() != this.getNation()) // if the otherPerson isn't another special encounter
+        {
+            return 5;
+        }
 
+        return 0; // if otherPerson is another special encounter, do nothing
+    }
 }
