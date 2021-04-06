@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class World
 {
-    private final int worldLifePoints = 4000;
+    private final int worldLifePoints = 9000;
     private final int numberOfRounds = 100;
     private ArrayList<Nation> allNations = new ArrayList<>();
     private ArrayList<Nation> allLivingNations = new ArrayList<>();
@@ -78,9 +78,9 @@ public class World
     public void createWorld()
     {
         // add Nations participating in the game to nations ArrayList.
-        String[] nationNames = {"Smilons", "Naveed", "Perez", "Toyberg"};
+        String[] nationNames = {"Smilons", "Naveed", "Perez", "Toyberg", "Special Scenario"};
         for(String name : nationNames){
-            allNations.add(new Nation(name, (worldLifePoints / nationNames.length));
+            allNations.add(new Nation(name, (worldLifePoints / nationNames.length)));
         }
     }
 
