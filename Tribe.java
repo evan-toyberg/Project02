@@ -19,6 +19,7 @@ public class Tribe
     private BuildNationSmilons buildSmilons = new BuildNationSmilons();
     private BuildNationPerez buildNationPerez = new BuildNationPerez();
 
+
     /**
      * Create tribes under the given nation using the people types warrior, wizzard, healer.
      * Each tribe is given 1/3 of the life points.
