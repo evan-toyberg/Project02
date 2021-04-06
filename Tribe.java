@@ -18,6 +18,7 @@ public class Tribe
     private BuildNationToyberg buildNationToyberg = new BuildNationToyberg();
     private BuildNationSmilons buildSmilons = new BuildNationSmilons();
     private BuildNationPerez buildNationPerez = new BuildNationPerez();
+    private BuildSpecialEncounters buildSpecialEncounters = new BuildSpecialEncounters();
 
 
     /**
@@ -61,6 +62,10 @@ public class Tribe
         {
             buildSmilons.add(members,nationName,tribeName,tribeLifePoints);
         }
+        if(this.nationName.equals("Special Encounter"))
+        {
+            buildSpecialEncounters.add(members,nationName,tribeName,tribeLifePoints);
+        }
     }
 
     /**
@@ -91,8 +96,6 @@ public class Tribe
         }
         return livingMembers;
     }
-
-
 
     /**
      * @return size of the current living members

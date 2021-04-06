@@ -8,7 +8,8 @@ public enum PeopleType
 {
     wizard  ("wizard"),
     warrior ("warrior"),
-    healer ("healer");
+    healer ("healer"),
+    SpecialEncounter ("Special Encounter");
 
     private String description;
 
