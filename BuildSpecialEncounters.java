@@ -9,7 +9,7 @@ public class BuildSpecialEncounters implements AddPlayers {
         if(tribeName.equals("Animals"))
         {
             members.add(new Snakes(nationName, tribeName, 2));
-
+            members.add(new Wolf(nationName,tribeName,50));
         }
         if(tribeName.equals("Traps"))
         {
@@ -18,6 +18,8 @@ public class BuildSpecialEncounters implements AddPlayers {
         if(tribeName.equals("Character"))
         {
             members.add(new Warchief(nationName, tribeName, 2));
+            members.add(new Merchant(nationName,tribeName,100));
+
         }
     }
 }

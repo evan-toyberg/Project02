@@ -15,6 +15,8 @@ public class Warchief extends People {
         {
             if (otherPerson.getType().equals(PeopleType.warrior)) // if otherPerson is a warrior
             {
+                modifyLifePoints(-1);
+
                 return -10;
             }
         }
