@@ -14,9 +14,10 @@ public class Plague extends Project02.People {
     @Override
     public int encounterStrategy(Project02.People otherPerson) {
         // Plague kills the other person
-        if (this.getNation() != otherPerson.getNation()){
+        if (!this.getNation().equals(otherPerson.getNation())){
             otherPerson.setDead();
-            return otherPerson.getLifePoints();
+            otherPerson.modifyLifePoints(-100);
+            return this.getLifePoints()-1;
         }
         else
             return 0;
