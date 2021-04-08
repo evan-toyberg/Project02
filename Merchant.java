@@ -26,9 +26,17 @@ public class Merchant extends People{
                 lifepoints = -this.getLifePoints();
                 return lifepoints;
             }
+        }
+        else
+        {
             if (otherPerson.getType().equals(PeopleType.healer))
             {
                 lifepoints = (this.getLifePoints() - otherPerson.getLifePoints())/2;
+                return lifepoints;
+            }
+            else
+            {
+                lifepoints = -this.getLifePoints();
                 return lifepoints;
             }
         }
