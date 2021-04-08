@@ -18,6 +18,8 @@ public class BuildSpecialEncounters implements AddPlayers {
         if(tribeName.equals("Character"))
         {
             members.add(new Warchief(nationName, tribeName, 2));
+            members.add(new Merchant(nationName,tribeName,100));
+
         }
     }
 }
