@@ -12,6 +12,8 @@ public class Snakes extends People {
 
         if (otherPerson.getNation() != this.getNation()) // if the otherPerson isn't another special encounter
         {
+            modifyLifePoints(-1);
+
             return 5;
         }
 
