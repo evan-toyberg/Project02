@@ -13,7 +13,7 @@ public class BuildSpecialEncounters implements AddPlayers {
         }
         if(tribeName.equals("Traps"))
         {
-
+            members.add(new Plague(nationName, tribeName, 2));
         }
         if(tribeName.equals("Character"))
         {
