@@ -184,8 +184,9 @@ public class World
             {
                 p2damage = 0;
                 p1damage = 0;
+                System.out.println("Special Encounter ignored");
             }
-            else // else, the number is odd, and the encounter is ignored
+            else // else, the number is odd, and the encounter plays out normally
             {
 
             }
@@ -197,9 +198,13 @@ public class World
         worldCreatedPeople.get(person1).modifyLifePoints((-p2damage));
         worldCreatedPeople.get(person2).modifyLifePoints((-p1damage ));
 
-        // Both people lose 1 life point per encounter due to aging
-        worldCreatedPeople.get(person1).modifyLifePoints((-1));
-        worldCreatedPeople.get(person2).modifyLifePoints((-1));
+        // Both people lose 1 life point per encounter due to aging, ignores Special Encounters
+        if (worldCreatedPeople.get(person1).getType() != PeopleType.SpecialEncounter) {
+            worldCreatedPeople.get(person1).modifyLifePoints((-1));
+        }
+        if(worldCreatedPeople.get(person2).getType() != PeopleType.SpecialEncounter) {
+            worldCreatedPeople.get(person2).modifyLifePoints((-1));
+        }
 
     }
 
