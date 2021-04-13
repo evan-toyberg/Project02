@@ -14,6 +14,7 @@ public class BuildSpecialEncounters implements AddPlayers {
         if(tribeName.equals("Traps"))
         {
             members.add(new Plague(nationName, tribeName, 2));
+            members.add(new FireTrap(nationName,tribeName,100));
         }
         if(tribeName.equals("Character"))
         {
