@@ -21,6 +21,7 @@ public class BuildSpecialEncounters implements AddPlayers {
             members.add(new Warchief(nationName, tribeName, 2));
             members.add(new Merchant(nationName,tribeName,100));
             members.add(new Gandalf(nationName, tribeName, 2));
+            members.add(new FireKeeper(nationName, tribeName, 2));
 
         }
     }
