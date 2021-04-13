@@ -2,12 +2,12 @@ package Project02;
 
 import java.nio.charset.StandardCharsets;
 
- /** The healer heals people from the same nation.
+/** The healer heals people from the same nation.
  * If the two players are from the same tribe and the other player is the healer,
  * the healer can be healed. If other player is not a healer, nothing happens to the
  * healer. If the other person is from the same tribe, he/she heals him/her by 10 lifepoints.
  * If the other person is from the same tribe, he/she heals him/her by 5 lifepoints.
-  * If the two players are not from the same nation, healer can only fight a healer. Healer
+ * If the two players are not from the same nation, healer can only fight a healer. Healer
  * will run away if fighting warrior or wizard.
  */
 public class NaveedHealer2 extends People
@@ -70,15 +70,24 @@ public class NaveedHealer2 extends People
         // The healer has a good offense and defense.
         else
         {
-            // If other person lifepoints are lower than the player's
-            if (this.getLifePoints() > otherPerson.getLifePoints())
-            {
-                lifepoints = this.getLifePoints() / 3;
+            if (otherPerson.getType().equals(PeopleType.warrior) && otherPerson.getType().equals(PeopleType.wizard) && otherPerson.getType().equals(PeopleType.healer)) {    // If other person lifepoints are lower than the player's
+                if (this.getLifePoints() > otherPerson.getLifePoints()) {
+                    lifepoints = this.getLifePoints() / 3;
+                }
+                // If other person lifepoints are higher than the player's
+                else {
+                    lifepoints = this.getLifePoints() / 4;
+                }
             }
-            // If other person lifepoints are higher than the player's
-            else
+
+            if (otherPerson.getTribe().equals("Traps"))
             {
-                lifepoints = this.getLifePoints() / 4;
+                lifepoints = -this.getLifePoints();
+            }
+
+            if (otherPerson.getTribe().equals("Animals"))
+            {
+                lifepoints = (this.getLifePoints()- otherPerson.getLifePoints())/3;
             }
         }
 
