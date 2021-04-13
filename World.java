@@ -174,6 +174,24 @@ public class World
 
         }
 
+        // if one of the people is a special encounter
+        // interact if dice lands on an even #
+        // else ignore the encounter
+        if ((worldCreatedPeople.get(person1).getType() == PeopleType.SpecialEncounter)
+                || (worldCreatedPeople.get(person2).getType() == PeopleType.SpecialEncounter))
+        {
+            if (Dice.roll(6) % 2 == 0) // if the number is even, then encounter is ignored
+            {
+                p2damage = 0;
+                p1damage = 0;
+            }
+            else // else, the number is odd, and the encounter is ignored
+            {
+
+            }
+        }
+
+
         // record the damage: positive damage should be subtracted for persons lifePoint
         // negative damage is added to persons life points
         worldCreatedPeople.get(person1).modifyLifePoints((-p2damage));
