@@ -14,6 +14,6 @@ public class FireTrap extends People{
     @Override
     public int encounterStrategy(People otherPerson)
     {
-        return 0;
+        return (this.getLifePoints() - otherPerson.getLifePoints())/3;
     }
 }
