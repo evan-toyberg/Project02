@@ -178,34 +178,53 @@ public class World
         // interact if dice lands on an even #
         // else ignore the encounter
         if ((worldCreatedPeople.get(person1).getType() == PeopleType.SpecialEncounter)
-                || (worldCreatedPeople.get(person2).getType() == PeopleType.SpecialEncounter))
-        {
+                || (worldCreatedPeople.get(person2).getType() == PeopleType.SpecialEncounter)) {
             if (Dice.roll(6) % 2 == 0) // if the number is even, then encounter is ignored
             {
                 p2damage = 0;
                 p1damage = 0;
+                worldCreatedPeople.get(person1).modifyLifePoints((-p2damage));
+                worldCreatedPeople.get(person2).modifyLifePoints((-p1damage));
+
                 System.out.println("Special Encounter ignored");
             }
-            else // else, the number is odd, and the encounter plays out normally
+            else
             {
+                // record the damage
+                if (worldCreatedPeople.get(person1).getType() != PeopleType.SpecialEncounter) {
+                    worldCreatedPeople.get(person1).modifyLifePoints((-p2damage));
+                    // Both people lose 1 life point per encounter due to aging, ignores Special Encounters
+                    worldCreatedPeople.get(person1).modifyLifePoints((-1));
+                }
+                // if person1 is a special encounter
+                else {
+                    worldCreatedPeople.get(person1).modifyLifePoints((-1));
+                }
 
+                if (worldCreatedPeople.get(person2).getType() != PeopleType.SpecialEncounter) {
+                    worldCreatedPeople.get(person2).modifyLifePoints((-p1damage));
+                    // Both people lose 1 life point per encounter due to aging, ignores Special Encounters
+                    worldCreatedPeople.get(person2).modifyLifePoints((-1));
+                }
+                // if person2 is a special encounter
+                else {
+                    worldCreatedPeople.get(person2).modifyLifePoints((-1));
+                }
             }
         }
 
+        else // else, encounter plays out normally
+        {
+            // record the damage: positive damage should be subtracted for persons lifePoint
+            // negative damage is added to persons life points
+            worldCreatedPeople.get(person1).modifyLifePoints((-p2damage));
+            worldCreatedPeople.get(person2).modifyLifePoints((-p1damage));
 
-        // record the damage: positive damage should be subtracted for persons lifePoint
-        // negative damage is added to persons life points
-        worldCreatedPeople.get(person1).modifyLifePoints((-p2damage));
-        worldCreatedPeople.get(person2).modifyLifePoints((-p1damage ));
-
-        // Both people lose 1 life point per encounter due to aging, ignores Special Encounters
-        if (worldCreatedPeople.get(person1).getType() != PeopleType.SpecialEncounter) {
+            // Both people lose 1 life point per encounter due to aging, ignores Special Encounters
             worldCreatedPeople.get(person1).modifyLifePoints((-1));
-        }
-        if(worldCreatedPeople.get(person2).getType() != PeopleType.SpecialEncounter) {
             worldCreatedPeople.get(person2).modifyLifePoints((-1));
-        }
 
+        }
     }
 
     /**

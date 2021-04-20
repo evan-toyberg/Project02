@@ -14,12 +14,10 @@ public class Gandalf extends People{
         {
             if (otherPerson.getType().equals(PeopleType.wizard)) // if otherPerson is a wizard, heal
             {
-                modifyLifePoints(-1);
                 return -20;
             }
             else if (otherPerson.getType().equals(PeopleType.warrior)) // if otherPerson is a warrior, attack
             {
-                modifyLifePoints(-1);
                 return 15;
             }
             else // if otherPerson == healer, ignore
